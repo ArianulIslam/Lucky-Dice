@@ -1,4 +1,4 @@
-# PigGame
+# Lucky Dice
 A JavaScript Game You can play  on any browser Developed by Using HTML CSS and JavaScript
 Game Rules:
 The game has 2 players, playing in rounds
