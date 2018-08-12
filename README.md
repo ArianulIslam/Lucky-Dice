@@ -7,4 +7,4 @@ The game has 2 players, playing in rounds
 - The player can choose to Hold, which means that his ROUND score gets added to his GLBAL score.After that,its the next players turn
 - The first player to reach 50 points on GLOBAL score wins the game
 
-Play Now : https://arianulislam.github.io/PigGame/
+Play Now : https://arianulislam.github.io/lucky-dice/
