@@ -4,12 +4,40 @@
         <meta charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
         <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
-        <link type="text/css" rel="stylesheet" href="style.css">
+        <link type="text/css" rel="stylesheet" href="public/css/style.css">
         
-        <title>Pig Game</title>
+        <title>Lucky Dice</title>
+        
+                <!-- Latest compiled and minified CSS -->
+ <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     </head>
 
     <body>
+                  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                      <img src="./public/images/chatlogo.png" width="50px" height="50px" alt="logo" /> 
+  <a class="navbar-brand" href="/">LuckyChat</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+      
+       <li class="nav-item">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+     
+    </ul>
+  </div>
+</nav>
+        
+        
+        
         <div class="wrapper clearfix">
             <div class="player-0-panel active">
                 <div class="player-name" id="name-0">Player 1</div>
@@ -29,13 +57,29 @@
                 </div>
             </div>
             
-            <button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>
-            <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
-            <button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>
+            <button class="btn-new btn btn-success">New game</button>
+            <button class="btn-roll btn btn-primary">Roll dice</button>
+            <button class="btn-hold btn btn-danger">Hold</button>
             
-            <img src="dice-5.png" alt="Dice" class="dice">
+            <img src="public/images/dice-5.png" alt="Dice" class="dice">
         </div>
         
-        <script src="app.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+        <script src="public/js/app.js"></script>
+        <script type="text/javascript">
+        
+             var score =  $('#current-1').val();
+             var socket = io();
+             socket.on('score',function(data){
+                 for (var i = 0; i<data.length;i++){
+                     console.log(data[i].score);
+                 }
+             });
+            socket.emit('score', $('#current-1').val());
+         
+            
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
     </body>
 </html>
